@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   def index
     tasks = Task.all
-    logger.log "Tasks: #{tasks.to_json}"
+    logger.log "Tasks: #{tasks.as_json}"
     render :json => tasks, status: :ok
   end
 
