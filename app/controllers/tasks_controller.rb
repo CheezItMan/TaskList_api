@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 
   def index
     tasks = Task.all
+    logger.log "Tasks: #{tasks.to_json}"
     render :json => tasks, status: :ok
   end
 
@@ -47,7 +48,7 @@ class TasksController < ApplicationController
       render json: {ok: false}, status: :not_found
     end
   end
-  
+
   private
 
   def find_student
